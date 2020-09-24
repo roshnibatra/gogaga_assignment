@@ -40,6 +40,7 @@ import retrofit2.Response;
 public class DataFragment extends Fragment {
 
     private static final String TAG = "DataFragment";
+    private static final Integer PROGRESS_BAR_VISIBILITY_TIME = 5000;
     private Integer START = 0;
     private Integer LIMIT = 15;
 
@@ -107,7 +108,7 @@ public class DataFragment extends Fragment {
     public void fetchData() {
         toggleImage(View.GONE);
         progressBar.setVisibility(View.VISIBLE);
-        progressBarHandler.postDelayed(showProgressRunnable, 5000);
+        progressBarHandler.postDelayed(showProgressRunnable, PROGRESS_BAR_VISIBILITY_TIME);
         postApiInterface.getPosts(String.valueOf(START), String.valueOf(LIMIT)).enqueue(callback);
     }
 
