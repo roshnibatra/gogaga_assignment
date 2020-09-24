@@ -132,7 +132,9 @@ public class DataFragment extends Fragment {
     private void displayNoNetworkToast() {
         Snackbar snackbar = Snackbar.make(constraintLayout, R.string.no_internet_connection, Snackbar.LENGTH_SHORT);
         snackbar.show();
-        toggleImage(View.VISIBLE);
+        if (currentItem == 0) {
+            toggleImage(View.VISIBLE);
+        }
     }
 
     public void toggleImage(int visibility) {
@@ -150,7 +152,9 @@ public class DataFragment extends Fragment {
                 progressBar.setVisibility(View.GONE);
                 displayNoNetworkToast();
             } else {
-                toggleImage(View.VISIBLE);
+                if (currentItem == 0) {
+                    toggleImage(View.VISIBLE);
+                }
             }
         }
     };
